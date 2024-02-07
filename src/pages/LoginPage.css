@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#body_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+#heading{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.div_form{
+    display: flex;
+    width: 40%;
+    height: auto;
+    padding: 15px;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 7.5% ;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+
+#LoginForm{
+    display: flex;
+    flex-direction: column;
+    
+    padding: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.inputGrp{
+    margin: 5px;
+}
+
+input,select{
+    font-size: 20px;
+    border: 1px solid black ;
+    padding: 5px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+span{
+    display: inline-block;
+    width: 100px;
+    padding: 5px;
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: antiquewhite;
+    border: 1px solid black;
+}
+
+button{
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: antiquewhite;
+}
+#adress{
+    display: inline;
+}
+page_link{
+    text-decoration: none;
+}
+/* page_link:hover{
+    text-decoration: underline;
+} */
