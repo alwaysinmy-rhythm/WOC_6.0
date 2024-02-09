@@ -18,16 +18,15 @@ const UserSchema = new mongoose.Schema({
         default:"",
         type: String,
     },
-    Emailid: {
+    EmailId: {
         type: String,
-        // default:"",
+        default:"",
         // required:true,
         unique:true,
     },
     Password: {
         type:String,
         // required:true,
-        // unique:true,
     },
     // Birthdate: Date,
     Gender: {
@@ -35,19 +34,19 @@ const UserSchema = new mongoose.Schema({
         default:"",
     },
     
-    add_street : {
+    Add_street : {
         default:"",
         type:String
     },
-    add_city : {
+    Add_city : {
         default:"",
         type:String
     },
-    add_state : {
+    Add_state : {
         default:"",
         type:String
     },
-    add_zip : {
+    Add_zip : {
         default:"",
         type:String
     },

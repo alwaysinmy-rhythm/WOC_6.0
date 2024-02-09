@@ -1,15 +1,21 @@
 import React from 'react';
 import './LoginPage.css'
+import Navbar from './Navbar';
+import './Navbar_style.css';
 import { Link } from 'react-router-dom';
 import {useState} from 'react' ;
-import axios from 'axios'
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import cookies from 'js-cookie';
+
+
 
 export const SignupPage = () => {
-	const [Firstname,setFname] = useState(''); 
-	const [Lastname,setLname] = useState(''); 
+	const [FirstName,setFname] = useState(''); 
+	const [LastName,setLname] = useState(''); 
 	const [EmailId,setEmail] = useState(''); 
 	const [Password,setPass] = useState(''); 
-	// const [Bdate,setBdate] = useState(''); 
 	const [Gender,setGender] = useState(''); 
 	const [Add_street,setAdd_Street] = useState(''); 
 	const [Add_city,setAdd_City] = useState(''); 
@@ -18,8 +24,17 @@ export const SignupPage = () => {
 
 	const handleSubmit = async (e)=>{
 		e.preventDefault(); 
-		axios.post('http://localhost:3001/Signup' , {Firstname , Lastname, EmailId, Password , Gender,Add_street,Add_city,Add_state,Add_zip})
-		.then(result => console.log(result))
+		axios.post('http://localhost:3001/Signup' , {FirstName , LastName, EmailId, Password , Gender,Add_street,Add_city,Add_state,Add_zip})
+		.then(result => {
+				if(result.data === 'Emailid Already Exist'){
+					alert('EmailId is already registered');
+				}
+				else{
+					cookies.set('email', EmailId, {expires:7});
+					alert("Registered Successfully"); 
+
+				} 
+		})
 		.catch (error=>console.log(error));
 	}
 	return (
@@ -30,15 +45,15 @@ export const SignupPage = () => {
 				</div>
 				<form method='POST' onSubmit={handleSubmit} id='LoginForm'>
 					<div className='inputGrp'>
-						<span>First Name</span><input type="text" placeholder='' name='FirstName' value={Firstname} onChange={(e)=>setFname(e.target.value)}/>
+						<span>First Name</span><input type="text" placeholder='' name='FirstName' value={FirstName} onChange={(e)=>setFname(e.target.value)}/>
 					</div>
 
 					<div className='inputGrp'>
-						<span>Last Name</span><input type="text" placeholder='' name='LastName' value={Lastname}  onChange={(e)=>setLname(e.target.value)}/>
+						<span>Last Name</span><input type="text" placeholder='' name='LastName' value={LastName}  onChange={(e)=>setLname(e.target.value)}/>
 					</div>
 
 					<div className='inputGrp'>
-						<span>Email ID</span><input type='email' placeholder='abc@gmail.com' name='Emailid' value={EmailId} onChange={(e)=>setEmail(e.target.value)} />
+						<span>Email ID</span><input type='email' placeholder='abc@gmail.com' name='EmailId' value={EmailId} onChange={(e)=>setEmail(e.target.value)} />
 					</div>
 
 					<div className='inputGrp'>

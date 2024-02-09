@@ -1,0 +1,79 @@
+.account-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .photo-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .photo-section img {
+    width: 150px; /* Adjust as needed */
+    height: 150px; /* Adjust to maintain aspect ratio */
+    border-radius: 50%; /* Circular photo */
+  }
+  
+  .info-section {
+    flex: 2;
+    margin-left: 20px;
+  }
+  
+  .info-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .info-section p {
+    margin-bottom: 5px;
+  }
+  
+  .account-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.textarea {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none; /* Prevent resizing of the textarea */
+}
+
+/* If you have a navbar, you might want to add some top margin */
+.navbar + .account-container {
+    margin-top: 60px;
+}
+
+/* Button styles, if you have any form submission or actions */
+.button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
