@@ -12,42 +12,43 @@ mongoose.connect('mongodb://127.0.0.1:27017/IRCTC_USER_AUTH', { useNewUrlParser:
 const UserSchema = new mongoose.Schema({
     FirstName: {
         type: String,
-        required:true,
+        default:"",
     },
     LastName: {
+        default:"",
         type: String,
     },
     Emailid: {
         type: String,
-        required:true,
+        // default:"",
+        // required:true,
         unique:true,
     },
     Password: {
         type:String,
-        required:true,
-        unique:true,
+        // required:true,
+        // unique:true,
     },
-    Birthdate: Date,
+    // Birthdate: Date,
     Gender: {
         type: String,
-        enum: ['Male', 'Female', 'Other', 'PreferNottosay'], 
+        default:"",
     },
-    // address: {
-    //     street: String,
-    //     city: String,
-    //     state:String,
-    //     zip: Number,
-    // },
+    
     add_street : {
+        default:"",
         type:String
     },
     add_city : {
+        default:"",
         type:String
     },
     add_state : {
+        default:"",
         type:String
     },
     add_zip : {
+        default:"",
         type:String
     },
     
