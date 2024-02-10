@@ -104,6 +104,12 @@ app.get('/user/:email', async (req, res) => {
     }
   });
 
+app.post('/update_profile', async (req,res)=>{
+    console.log(req.body); 
+    const result = await users.updateOne(req.body.userdetails);
+    res.json('keep going');
+})
+
 app.listen(3001 , ()=>{
     console.log('Server is running on 3001'); 
 }) ;
