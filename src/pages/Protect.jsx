@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 
 const PrivateRoute = () => {
   const isAuthenticated = !!Cookies.get('email'); // Replace 'token' with the name of your authentication token
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
   const navigate = useNavigate() ;
   if( !isAuthenticated  )return  <Navigate to ={"/"}/>; 
   else return <Outlet />

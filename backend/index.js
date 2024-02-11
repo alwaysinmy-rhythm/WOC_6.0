@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const users = require('./UsersModel')
+const bookings = require('./BookingModel.js')
 const express = require('express');
 const cors = require('cors');
 
@@ -75,6 +76,50 @@ app.post('/Signup', async(req,res)=>{
             let result = await person.save();
             result = result.toObject();
             res.status(201).json({ message: 'User registered successfully', users: result });
+        }
+    }
+
+    catch(e){
+        console.log(e);
+        res.send("Something went wrong");
+    }
+});
+
+
+app.post('/booking', async(req,res)=>{
+    console.log(req.body)
+    
+    try{
+        const {
+            EmailId,
+            TrainNo,
+            TrainName,
+            FromsStation,
+            ToStation,
+            Fare,
+            Class,
+            TrainDate
+        } = req.body;
+        const bill =  new bookings({
+            EmailId,
+            TrainNo,
+            TrainName,
+            FromsStation,
+            ToStation,
+            Fare,
+            Class,
+            TrainDate
+        });
+        console.log(bill);
+        let check = await bookings.findOne({EmailId: EmailId , TrainNo:TrainNo , TrainDate:TrainDate}); 
+        if( check){
+            console.log('Booking already Exist')
+            res.json('Booking Already Exist')
+        }
+        else{
+            let result = await bill.save();
+            result = result.toObject();
+            res.status(201).json({ message: 'Booking registered successfully', bookings: result });
         }
     }
 

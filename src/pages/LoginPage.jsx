@@ -52,7 +52,7 @@ const LoginPage = () => {
 					</div>
 
 					<div className='inputGrp'>
-						Don't have account?<Link to='SignupPage' id='page_link'> Register</Link>
+						Don't have account?<Link to='SignupPage' id='page_link'> <h4>Register</h4></Link>
 					</div>
 				</form>
 			</div>

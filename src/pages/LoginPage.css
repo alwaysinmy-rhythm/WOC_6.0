@@ -37,8 +37,8 @@
 #LoginForm{
     display: flex;
     flex-direction: column;
-    
-    padding: 25px;
+    width: 80%;
+    /* padding: 25px; */
     align-items: center;
     justify-content: center;
 }
@@ -76,9 +76,3 @@ button{
 #adress{
     display: inline;
 }
-page_link{
-    text-decoration: none;
-}
-/* page_link:hover{
-    text-decoration: underline;
-} */
