@@ -1,0 +1,52 @@
+datalist{
+    margin: 3px;
+    padding: 3px;
+    /* font-size: larger; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+#booking_input{
+    margin : 15px ;
+    margin-top: 80px;
+    padding: 5px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selection{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-left:30px ;
+    margin-right:30px ;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+label{
+    margin :10px;
+    font-weight: 900;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+#shift{
+    margin: 25px;
+
+    height: 60px;
+    width: 60px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+#searchtrain{
+    width: 125px;
+    height: 110px;
+    margin: auto;
+}

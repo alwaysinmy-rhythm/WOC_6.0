@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import cookie from 'js-cookie'
-import {useState} from 'react' ;
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 import LoginPage from './pages/LoginPage.jsx'
@@ -15,7 +13,6 @@ import NotFound from './pages/NotFound.jsx';
 
 
 function App() {
-    // [cookieval,setcookiesval] = useState(cookie.getItem('EmailId'));
     return (
 		<Router>
             <Routes>
