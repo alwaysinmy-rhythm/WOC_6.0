@@ -4,7 +4,7 @@ const bookings = require('./BookingModel.js')
 const express = require('express');
 const cors = require('cors');
 
-mongoose.connect('mongodb://127.0.0.1:27017/IRCTC_USER_AUTH');
+mongoose.connect('mongodb+srv://rdhmpanchal:1234@cluster0.hb7ro5h.mongodb.net/');
 
 
 const app = express();

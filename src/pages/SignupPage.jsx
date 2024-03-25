@@ -32,7 +32,7 @@ export const SignupPage = () => {
 				else{
 					cookies.set('email', EmailId, {expires:7});
 					alert("Registered Successfully"); 
-
+					
 				} 
 		})
 		.catch (error=>console.log(error));

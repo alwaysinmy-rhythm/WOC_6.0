@@ -12,7 +12,6 @@ import PrivateRoute from './pages/Protect.jsx';
 import BookingPage from './pages/Booking.jsx'
 import NotFound from './pages/NotFound.jsx';
 
-
 function App() {
     return (
 		<Router>
