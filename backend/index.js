@@ -14,6 +14,8 @@ app.use(cors({
     credentials:true,           
     optionSuccessStatus:200
   }));
+app.options('*', cors({ origin: 'https://irctc-three.vercel.app', credentials: true }));
+
 
 
 app.get('/' , (req,res)=>{
