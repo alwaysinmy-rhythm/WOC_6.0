@@ -10,7 +10,7 @@ mongoose.connect('mongodb+srv://rdhmpanchal:1234@cluster0.hb7ro5h.mongodb.net/')
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin:'http://localhost:3000', 
+    origin:'https://irctc-three.vercel.app/', 
     credentials:true,           
     optionSuccessStatus:200
   }));
