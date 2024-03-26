@@ -3,7 +3,7 @@ const users = require('./UsersModel')
 const bookings = require('./BookingModel.js')
 const express = require('express');
 const cors = require('cors');
-
+const PORT = process.env.PORT
 mongoose.connect('mongodb+srv://rdhmpanchal:1234@cluster0.hb7ro5h.mongodb.net/');
 
 
@@ -159,6 +159,6 @@ app.post('/update_profile', async (req,res)=>{
     res.json('keep going');
 })
 
-app.listen(3001 , ()=>{
-    console.log('Server is running on 3001'); 
+app.listen(PORT , ()=>{
+    console.log('Server is running on PORT'); 
 }) ;
