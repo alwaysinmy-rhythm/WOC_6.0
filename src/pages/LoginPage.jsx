@@ -10,10 +10,12 @@ import HomePage from './HomePage.jsx';
 import SignupPage from './SignupPage.jsx';
 import './LoginPage.css'
 
+
 const LoginPage = () => {
 	const [EmailId,setEmail] = useState(''); 
 	const [Password,setPass] = useState(''); 
 	const navigate = useNavigate() ; 
+	axios.defaults.withCredentials = true; 
 	const handleSubmit = async(e)=>{
 		e.preventDefault();
 		axios.post('http://localhost:3001/login' , {EmailId, Password})

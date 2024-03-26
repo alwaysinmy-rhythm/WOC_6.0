@@ -10,7 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import cookies from 'js-cookie';
 
 
-
 export const SignupPage = () => {
 	const [FirstName,setFname] = useState(''); 
 	const [LastName,setLname] = useState(''); 
@@ -24,7 +23,7 @@ export const SignupPage = () => {
 
 	const handleSubmit = async (e)=>{
 		e.preventDefault(); 
-		axios.post('http://localhost:3001/Signup' , {FirstName , LastName, EmailId, Password , Gender,Add_street,Add_city,Add_state,Add_zip})
+		axios.post('https://woc-6-0.vercel.app/Signup' , {FirstName , LastName, EmailId, Password , Gender,Add_street,Add_city,Add_state,Add_zip})
 		.then(result => {
 				if(result.data === 'Emailid Already Exist'){
 					alert('EmailId is already registered');
