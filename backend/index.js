@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin:'https://irctc-three.vercel.app', 
-    credentials:true,           
+    credentials:false,           
     optionSuccessStatus:200
   }));
 
