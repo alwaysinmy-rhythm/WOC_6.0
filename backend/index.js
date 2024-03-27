@@ -3,18 +3,19 @@ const users = require('./UsersModel')
 const bookings = require('./BookingModel.js')
 const express = require('express');
 const cors = require('cors');
-const PORT = 3000
-mongoose.connect('mongodb+srv://rdhmpanchal:1234@cluster0.hb7ro5h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+const PORT = 3001;
 
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-    origin:'https://irctc-three.vercel.app', 
-    credentials:false,           
+const corsOptions ={
+    origin:'https://irctc-three.vercel.app/', 
+    credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
-  }));
+}
+app.use(cors(corsOptions));
 
+mongoose.connect('mongodb+srv://rdhmpanchal:1234@cluster0.hb7ro5h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
 
 app.get('/' , (req,res)=>{
