@@ -9,9 +9,12 @@ const PORT = 3001;
 const app = express();
 app.use(express.json());
 const corsOptions ={
-    origin:'https://irctc-three.vercel.app/', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
+    //thanks to claude ai which helped me in this. 
+    origin: 'https://irctc-three.vercel.app/', // or a list of allowed origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // allowed headers
+    credentials: true, // allow sending credentials (cookies, etc.)
+    optionsSuccessStatus: 200 // some legacy browsers choke on 204
 }
 app.use(cors(corsOptions));
 
