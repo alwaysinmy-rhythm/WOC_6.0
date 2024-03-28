@@ -8,15 +8,15 @@ const PORT = 3001;
 
 const app = express();
 app.use(express.json());
-const corsOptions ={
-    //thanks to claude ai which helped me in this. 
-    origin: 'https://irctc-three.vercel.app/', // or a list of allowed origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // allowed headers
-    credentials: true, // allow sending credentials (cookies, etc.)
-    optionsSuccessStatus: 200 // some legacy browsers choke on 204
-}
-app.use(cors(corsOptions));
+// const corsOptions ={
+//     //thanks to claude ai which helped me in this. 
+//     origin: 'https://irctc-three.vercel.app/', // or a list of allowed origins
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allowed HTTP methods
+//     allowedHeaders: ['Content-Type', 'Authorization'], // allowed headers
+//     credentials: true, // allow sending credentials (cookies, etc.)
+//     optionsSuccessStatus: 200 // some legacy browsers choke on 204
+// }
+app.use(cors());
 
 mongoose.connect('mongodb+srv://rdhmpanchal:1234@cluster0.hb7ro5h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
