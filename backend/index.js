@@ -14,7 +14,7 @@ app.use(express.json());
 // const allowedOrigins = ['https://irctc-three.vercel.app'];
 app.use(cors(
     {
-        origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+        origin: process.env.FRONTEND_URL,
         allowedHeaders : ['Authorization', 'Content-Type', 'Role'],
         credentials:true
     }
