@@ -1,9 +1,12 @@
+// import dotenv from 'dotenv'; 
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const users = require('./UsersModel')
 const bookings = require('./BookingModel.js')
 const express = require('express');
 const cors = require('cors');
-const PORT = 3001;
+
+dotenv.config()
 
 
 const app = express();
@@ -11,14 +14,13 @@ app.use(express.json());
 // const allowedOrigins = ['https://irctc-three.vercel.app'];
 app.use(cors(
     {
-        // origin: ["http://localhost:3000"],
-        origin: ["https://irctc-three.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
+        origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+        allowedHeaders : ['Authorization', 'Content-Type', 'Role'],
+        credentials:true
     }
 ));
 
-mongoose.connect('mongodb+srv://rdhmpanchal:1234@cluster0.hb7ro5h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+mongoose.connect(process.env.MONGO_URL);
 
 
 app.get('/' , (req,res)=>{
@@ -164,6 +166,6 @@ app.post('/update_profile', async (req,res)=>{
     res.json('keep going');
 })
 
-app.listen(PORT , ()=>{
-    console.log('Server is running on PORT'); 
+app.listen(process.env.PORT , ()=>{
+    console.log(`Server is running on ${process.env.PORT}`); 
 }) ;
