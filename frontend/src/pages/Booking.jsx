@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import './Booking.css'; 
 import axios from 'axios';
 import Cookies from 'js-cookie'
+import config from '../config'; 
 
 
 const Booking = () => {
@@ -12,7 +13,7 @@ const Booking = () => {
 
     useEffect(()=>{
 
-      axios.get(`http://localhost:3001/user/${userEmail}`)
+      axios.get( (config.BACKEND_API || "http://localhost:3001") + `/user/${userEmail}`)
         .then(res =>{
           console.log(res.data);
           setdata(res.data);

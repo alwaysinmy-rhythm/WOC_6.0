@@ -5,7 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import cookies from 'js-cookie';
-
+import config from '../config'; 
 import HomePage from './HomePage.jsx'; 
 import SignupPage from './SignupPage.jsx';
 import './LoginPage.css'
@@ -18,8 +18,7 @@ const LoginPage = () => {
 	axios.defaults.withCredentials = true; 
 	const handleSubmit = async(e)=>{
 		e.preventDefault();
-		axios.post('http://localhost:3001/login' , {EmailId, Password})
-		// axios.post('https://woc-6-0.vercel.app/login' , {EmailId, Password})
+		axios.post( (config.BACKEND_API || "http://localhost:3001") +'/login' , {EmailId, Password})
 		.then(result =>{
 			if( result.data === 'LoginFail' ){
 				alert("Invalid EmailId/Password");

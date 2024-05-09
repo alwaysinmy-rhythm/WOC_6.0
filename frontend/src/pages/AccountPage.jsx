@@ -4,14 +4,14 @@ import './Navbar_style.css';
 import './AccountPage.css';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import config from '../config'; 
 
 export const AccountPage = () => {
 	
 	const [userdetails, setdata] = useState([]);
 	const userEmail = Cookies.get('email'); 
 	useEffect(()=>{
-
-		axios.get(`http://localhost:3001/user/${userEmail}`)
+		axios.get( (config.BACKEND_API || "http://localhost:3001")+ `/user/${userEmail}`)
 			.then(res =>{
 				console.log(res.data);
 				setdata(res.data);
@@ -31,7 +31,7 @@ export const AccountPage = () => {
 		e.preventDefault();
 		let FirstName = userdetails.FirstName ;  
 		// console.log(FirstName);
-		axios.post('http://localhost:3001/update_profile' ,{userdetails} )
+		axios.post( (config.BACKEND_API || "http://localhost:3001")+ + '/update_profile' ,{userdetails} )
 			.then(res=>{
 				console.log('user data update successfully');
 				alert('Upadated Successfully');
