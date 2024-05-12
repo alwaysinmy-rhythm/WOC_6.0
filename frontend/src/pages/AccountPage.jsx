@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react'
+import {useNavigate} from 'react-router-dom';
 import Navbar from './Navbar';
 import './Navbar_style.css';
 import './AccountPage.css';
@@ -6,10 +7,15 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import config from '../config'; 
 
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+
+
 export const AccountPage = () => {
-	
+	const [viewpass, setViewPass] = useState(false);
 	const [userdetails, setdata] = useState([]);
 	const userEmail = Cookies.get('email'); 
+	const navigate = useNavigate() ; 
 	useEffect(()=>{
 		axios.get( (config.BACKEND_API || "http://localhost:3001")+ `/user/${userEmail}`)
 			.then(res =>{
@@ -29,10 +35,9 @@ export const AccountPage = () => {
 
 	const handleupdate = async (e)=>{
 		e.preventDefault();
-		let FirstName = userdetails.FirstName ;  
-		// console.log(FirstName);
-		axios.post( (config.BACKEND_API || "http://localhost:3001")+ + '/update_profile' ,{userdetails} )
-			.then(res=>{
+		console.log(userdetails);
+		axios.post( (config.BACKEND_API || "http://localhost:3001") + '/update_profile' ,{userdetails} )
+		.then(res=>{
 				console.log('user data update successfully');
 				alert('Upadated Successfully');
 				console.log(res.data);
@@ -43,7 +48,11 @@ export const AccountPage = () => {
 			})
 	}
 
-
+	const handlelogout = ()=>{
+		Cookies.remove('email');
+		console.log("cookies removed");
+		navigate("/");
+	}
 	return (
 		<div>
 
@@ -65,7 +74,13 @@ export const AccountPage = () => {
 					</div>
 
 					<div className='inputGrp'>
-						<span>Password</span><input type="Password" placeholder='Password' name='Password' value={userdetails.Password} onChange={handleChange}/>
+						<span>Password</span>
+						
+						<div  style={{display:'flex', width:'100%'}}>
+							<input type={viewpass ? 'text' : 'password'} placeholder='Password' name='Password' value={userdetails.Password} onChange={handleChange} style={{marginRight:"-40px"}}/>
+							<div onClick={() => setViewPass(!viewpass)} >{viewpass ? <VisibilityIcon/>:<VisibilityOffIcon/>}</div>
+						</div>
+						
 					</div>
 
 					{/* <div className='inputGrp'>
@@ -96,6 +111,9 @@ export const AccountPage = () => {
 						<button id='submit' type='submit'>Update</button>
 					</div>
 				</form>
+					<div className='inputGrp'>
+						<button id='submit' type='submit' onClick= { handlelogout}>LogOut</button>
+					</div>
 			</div>
 		</div>
 	)

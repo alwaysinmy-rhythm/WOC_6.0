@@ -1,6 +1,7 @@
 import React from 'react';
 import './LoginPage.css'
 import Navbar from './Navbar';
+import Footer from './Footer';
 import './Navbar_style.css';
 import { Link } from 'react-router-dom';
 import {useState} from 'react' ;
@@ -38,6 +39,8 @@ export const SignupPage = () => {
 		.catch (error=>console.log(error));
 	}
 	return (
+		<div>
+
 		<div id='body_div'>
 			<div className="div_form">
 				<div id="heading">
@@ -45,29 +48,29 @@ export const SignupPage = () => {
 				</div>
 				<form method='POST' onSubmit={handleSubmit} id='LoginForm'>
 					<div className='inputGrp'>
-						<span>First Name</span><input type="text" placeholder='' name='FirstName' value={FirstName} onChange={(e)=>setFname(e.target.value)}/>
+						<span className='spanstyle'>First Name</span><input type="text" placeholder='' name='FirstName' value={FirstName} onChange={(e)=>setFname(e.target.value)}/>
 					</div>
 
 					<div className='inputGrp'>
-						<span>Last Name</span><input type="text" placeholder='' name='LastName' value={LastName}  onChange={(e)=>setLname(e.target.value)}/>
+						<span className='spanstyle'>Last Name</span><input type="text" placeholder='' name='LastName' value={LastName}  onChange={(e)=>setLname(e.target.value)}/>
 					</div>
 
 					<div className='inputGrp'>
-						<span>Email ID</span><input type='email' placeholder='abc@gmail.com' name='EmailId' value={EmailId} onChange={(e)=>setEmail(e.target.value)} />
+						<span className='spanstyle'>Email ID</span><input type='email' placeholder='abc@gmail.com' name='EmailId' value={EmailId} onChange={(e)=>setEmail(e.target.value)} />
 					</div>
 
 					<div className='inputGrp'>
-						<span>Password</span><input type="Password" placeholder='Password' name='Password' value={Password} onChange={(e)=>setPass(e.target.value)}/>
+						<span className='spanstyle'>Password</span><input type="Password" placeholder='Password' name='Password' value={Password} onChange={(e)=>setPass(e.target.value)}/>
 					</div>
 
 					{/* <div className='inputGrp'>
-						<span>Birth Date</span><input type="Date" name='Birthdate' onChange={(e)=>setBdate(e.target.value)}/>
+						<span className='spanstyle'>Birth Date</span><input type="Date" name='Birthdate' onChange={(e)=>setBdate(e.target.value)}/>
 					</div> */}
 
 					<div className='inputGrp'>
-						<span>Gender</span>
+						<span className='spanstyle'>Gender</span>
 						<select id="gender" name="Gender" value={Gender} onChange={(e)=>setGender(e.target.value)}>
-							<option value="Male">Male</option>
+							<option value="Male" defaultChecked>Male</option>
 							<option value="Female">Female</option>
 							<option value="Other">Other</option>
 							<option value="NOTA">Prefer not to Say</option>
@@ -75,7 +78,7 @@ export const SignupPage = () => {
 					</div>
 
 					<div className='inputGrp'>
-						<span id='address'>Address</span>
+						<span className='spanstyle' id='address'>Address</span>
 
 						<input type="text" placeholder='Street' name='Add_street' value={Add_street} onChange={(e)=>setAdd_Street(e.target.value)}/>
 						<input type="text" placeholder='City' name='Add_city' value={Add_city} onChange={(e)=>setAdd_City(e.target.value)}/>
@@ -93,6 +96,9 @@ export const SignupPage = () => {
 					</div>
 				</form>
 			</div>
+
+		</div>
+		<Footer/>
 		</div>
 	)
 }

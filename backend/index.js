@@ -11,10 +11,10 @@ dotenv.config()
 
 const app = express();
 app.use(express.json());
-// const allowedOrigins = ['https://irctc-three.vercel.app'];
+
 app.use(cors(
     {
-        origin: process.env.FRONTEND_URL,
+        origin: process.env.FRONTEND_URL ,
         allowedHeaders : ['Authorization', 'Content-Type', 'Role'],
         credentials:true
     }
@@ -163,6 +163,7 @@ app.get('/user/:email', async (req, res) => {
 app.post('/update_profile', async (req,res)=>{
     console.log(req.body); 
     const result = await users.updateOne(req.body.userdetails);
+    console.log(result);
     res.json('keep going');
 })
 

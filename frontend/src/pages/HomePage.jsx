@@ -5,7 +5,6 @@ import './Navbar_style.css';
 import './HomePage.css';
 import Card from './Card.jsx'
 
-
 const traindata = {
 	"status": true,
 	"message": "Success",
@@ -2950,7 +2949,7 @@ export const HomePage = () => {
 
 				</div>
 			<div id='searchtrain'>
-				<button id='submit' type='submit' onClick={train_API}>Search</button>
+				<button id='submitbtn' type='submit' onClick={train_API}>Search</button>
 			</div>
 
 			{isData !== undefined && <div className='train_details'>
@@ -2959,6 +2958,7 @@ export const HomePage = () => {
 				))}
 			</div>}
 
+				
 		</div>
 	)
 }

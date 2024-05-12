@@ -16,7 +16,7 @@ datalist{
 }
 
 .selection{
-    width: 250px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -38,7 +38,6 @@ label{
 }
 #shift{
     margin: 25px;
-
     height: 60px;
     width: 60px;
     border: 2px solid black;
@@ -49,4 +48,8 @@ label{
     width: 125px;
     height: 110px;
     margin: auto;
+}
+
+#submitbtn{
+    width: 100px;
 }

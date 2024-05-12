@@ -11,10 +11,13 @@ import AccountPage from './pages/AccountPage.jsx'
 import PrivateRoute from './pages/Protect.jsx';
 import BookingPage from './pages/Booking.jsx'
 import NotFound from './pages/NotFound.jsx';
+import Footer from './pages/Footer.jsx'
+
 
 function App() {
     return (
 		<Router>
+   
             <Routes>
                 {/* {cookieval == undefined &&  <Route path="/LoginPage" element={<LoginPage />} />}
                 {cookieval != undefined &&  <Route path="/LoginPage" element={<AccountPage />} />} */}
@@ -29,8 +32,10 @@ function App() {
 
                 <Route path="*" element={<NotFound />} />
             </Routes>
+            <Footer />
         </Router>
-
+       
+        
     );
 }
 export default App;
